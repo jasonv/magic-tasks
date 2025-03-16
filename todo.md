@@ -28,10 +28,10 @@
       *"created\_at": "2024-07-30T12:00:00Z"*  
   *}*  
 * **Requirements:**  
-  - [ ] Validate requests. 
-  - [ ] Write clean, modular, and testable code.  
-  - [ ] Include error handling and proper HTTP status codes.  
-  - [ ] Assume no authentication for the API.
+  - [X] Validate requests. 
+  - [X] Write clean, modular, and testable code.  
+  - [X] Include error handling and proper HTTP status codes.  
+  - [X] Assume no authentication for the API.
 **Frontend:**
 * **Framework:** Use one of the following JavaScript frameworks or libraries:  
   * React (Vite) SPA  
@@ -44,8 +44,8 @@
   * [X] Delete Task:** Allow users to delete tasks via the interface.  
 * **Design:** Keep the design minimalistic and functional. Implement a CSS framework such as [X] Tailwind or Material UI to keep the focus on implementing features rather than styling.  
 * **Requirements:**  
-  * [ ] Implement form validation and error handling.  
-  * [ ] Provide a clean and user-friendly UI with responsive design.
+  * [X] Implement form validation and error handling.  
+  * [X] Provide a clean and user-friendly UI with responsive design.
 **Instructions:**
 1. **Setup:**  
    * [X] Implement the backend API with the specified endpoints.  
@@ -54,7 +54,7 @@
    * [ ] Provide a link to a public Git repository containing the source code for both the backend and frontend applications. Feel free to create two separate repos as well.  
    * [ ] Include a README file with instructions on how to run the application locally, including any necessary setup steps.  
 3. **Evaluation Criteria:**  
-   * [ ] **Code Quality:** Clean, well-structured, and documented code.  
-   * [ ] **Functionality:** The application meets the requirements and functions correctly.  
-   * [ ] **User Experience:** Intuitive and straightforward UI/UX.  
-   * [ ] **Efficiency:** Efficient handling of data and API interactions.
+   * [X] **Code Quality:** Clean, well-structured, and documented code.  
+   * [X] **Functionality:** The application meets the requirements and functions correctly.  
+   * [X] **User Experience:** Intuitive and straightforward UI/UX.  
+   * [X] **Efficiency:** Efficient handling of data and API interactions.

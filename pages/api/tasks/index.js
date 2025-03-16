@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import { info } from 'autoprefixer';
 import dotenv from 'dotenv';
 dotenv.config();
 import OpenAI from 'openai';
@@ -33,6 +34,10 @@ export default async function handler(req, res) {
       if(submitAction=="readMyMind")
       {
         const tasks = await prisma.task.findMany({ orderBy: { createdAt: 'desc' } });
+        if(tasks.length<=3)
+        {
+          res.status(500).json({ error: 'Please add at least three tasks before mind reading.' });
+        }
         console.log("tasks:" + JSON.stringify(tasks))
         const descriptions = tasks.map(item => item.description).join(', ');
         const whatIsInMyMind = await getChatGptResponse(descriptions);
@@ -50,7 +55,10 @@ export default async function handler(req, res) {
 
 async function getChatGptResponse(descriptions) {
   try {
-    const prompt = `here is a list\n\n${descriptions}\n\n what would be another good item for the list? please just return the item`;
+    const prompt = `here is a list of tasks \n\n${descriptions}\n\n `+
+    `what would be another sensable task be to add to this list of tasks? `+
+    `don't add a task that is similar to another one already on the list. `+
+    `please just return the task. `;
     
     const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",

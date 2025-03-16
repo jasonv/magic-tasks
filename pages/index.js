@@ -64,7 +64,7 @@ export default function Home() {
     <div className="min-h-screen bg-gray-100 p-4">
       <div className="max-w-xl mx-auto bg-white shadow content-center p-6">
         <h1 className="text-2xl font-bold mb-4">Magic Tasks</h1>
-        <h2>Add some tasks and then let Magic Tasks read your mind!</h2>
+        <h2>Add three tasks and then let Magic Tasks read your mind!</h2>
         <h2>&nbsp;</h2>
         <form onSubmit={addTask} className="mb-4">
           <input
