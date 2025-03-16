@@ -10,7 +10,9 @@
   "dependencies": {
     "@prisma/client": "latest",
     "@tailwindcss/postcss": "^4.0.14",
+    "dotenv": "^16.4.7",
     "next": "latest",
+    "openai": "^4.87.3",
     "react": "latest",
     "react-dom": "latest"
   },

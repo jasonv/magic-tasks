@@ -20,8 +20,9 @@ export default function Home() {
   }, []);
 
   const addTask = async (e) => {
+    const submitAction = e.nativeEvent.submitter.id;
     e.preventDefault();
-    if (!description.trim()) {
+    if (!description.trim() && submitAction=="addTaskButton") {
       setError('Please enter a task description');
       return;
     }
@@ -30,7 +31,7 @@ export default function Home() {
       const res = await fetch('/api/tasks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ description })
+        body: JSON.stringify({ submitAction, description })
       });
       if (res.ok) {
         const newTask = await res.json();
@@ -62,7 +63,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100 p-4">
       <div className="max-w-xl mx-auto bg-white shadow p-6">
-        <h1 className="text-2xl font-bold mb-4">Task Manager</h1>
+        <h1 className="text-2xl font-bold mb-4">Magic Tasks</h1>
         <form onSubmit={addTask} className="mb-4">
           <input
             type="text"
@@ -72,8 +73,11 @@ export default function Home() {
             className="w-full p-2 border border-gray-300 rounded"
           />
           {error && <p className="text-red-500 mt-2">{error}</p>}
-          <button type="submit" className="mt-2 w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+          <button type="submit" id="addTaskButton" className="mt-2 w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
             Add Task
+          </button>
+          <button type="submit" id="readMyMind" className="mt-2 w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+            Read My Mind
           </button>
         </form>
         <ul>
