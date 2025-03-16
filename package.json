@@ -8,15 +8,16 @@
     "prisma": "prisma"
   },
   "dependencies": {
+    "@prisma/client": "latest",
+    "@tailwindcss/postcss": "^4.0.14",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest",
-    "@prisma/client": "latest"
+    "react-dom": "latest"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
     "prisma": "latest",
-    "tailwindcss": "^3.0.0",
-    "postcss": "^8.0.0",
-    "autoprefixer": "^10.0.0"
+    "tailwindcss": "^4.0.14"
   }
 }
