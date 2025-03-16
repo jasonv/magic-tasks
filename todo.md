@@ -1,0 +1,3 @@
+- [X] Generate a starter project using a prompt in GTP-4.
+- [X] Verify functionality.
+- [X] Setup github repo and commit.
