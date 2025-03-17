@@ -51,10 +51,28 @@
    * [X] Implement the backend API with the specified endpoints.  
    * [X] Implement the frontend application to interact with the backend API.  
 2. **Submission:**  
-   * [ ] Provide a link to a public Git repository containing the source code for both the backend and frontend applications. Feel free to create two separate repos as well.  
-   * [ ] Include a README file with instructions on how to run the application locally, including any necessary setup steps.  
+   * [X] Provide a link to a public Git repository containing the source code for both the backend and frontend applications. Feel free to create two separate repos as well.  
+   * [X] Include a README file with instructions on how to run the application locally, including any necessary setup steps.  
 3. **Evaluation Criteria:**  
    * [X] **Code Quality:** Clean, well-structured, and documented code.  
    * [X] **Functionality:** The application meets the requirements and functions correctly.  
    * [X] **User Experience:** Intuitive and straightforward UI/UX.  
    * [X] **Efficiency:** Efficient handling of data and API interactions.
+[X] Read My Mind
+   [X] Pass button that was clicked into the back end.
+   [X] When user presses read my mind return a list of all tasks.
+   [X] Setup chatgtp key.
+   [X] Feed the list of all tasks into chat gtp.
+   [X] Return a resonable additonal tasks.
+   [X]] Save to list.
+[X] Clean Up
+   [X] Try with a variety of task lists.
+   [X] Show to my daughter for feedback.
+   [X] Show to my wife for feedback.
+   [X] Require that at least 3 tasks are entered by user.
+   [X] Check that the descriptions that are entered are actualy tasks.
+   [X] Rename project to Magic-Tasks
+   [X] Clean up logging.
+   [X] Avoid adding duplicates ot the list.
+   [X] Avoid anything offensive.
+   [X] Exclude .env file and keep chat gtp key local.
