@@ -65,6 +65,7 @@ async function getChatGptResponse(descriptions) {
     const prompt = `here is a list of tasks \n\n${descriptions}\n\n `+
     `what would be another sensable task be to add to this list of tasks? `+
     `don't add a task that is similar to another one already on the list. `+
+    `don't add any tasks that could be considered inappropriate.` +
     `please just return the task. `;
     
     const response = await openai.chat.completions.create({
