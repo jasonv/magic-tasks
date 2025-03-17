@@ -27,8 +27,15 @@ export default async function handler(req, res) {
 
       if(submitAction=="addTaskButton")
       {
-        const task = await prisma.task.create({ data: {description} });
-        res.status(201).json(task);
+        if("TRUE"===await isATask(description))
+        {
+          const task = await prisma.task.create({ data: {description} });
+          res.status(201).json(task);  
+        }
+        else
+        {
+          res.status(500).json({ error: 'Please enter a task. Something that can be done.' });
+        }
       }
 
       if(submitAction=="readMyMind")
@@ -69,5 +76,24 @@ async function getChatGptResponse(descriptions) {
   } catch (error) {
     console.log("Error fetching response from ChatGPT:", error);
     return "Could not determine what is on your mind." + error;
+  }
+}
+
+async function isATask(description) {
+  try {
+    const prompt = `Is the following description written in the format of a task?\n\n"${description}"\n\n` +
+      `Respond with only "TRUE" if it is a task and "FALSE" if it is not a task.`;
+
+    const response = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: prompt }],
+    });
+
+    const responseString = response.choices[0].message.content.trim();
+    console.log(">>>" + responseString);
+    return responseString;
+  } catch (error) {
+    console.log("Error checking task format:", error);
+    return "FALSE";
   }
 }
