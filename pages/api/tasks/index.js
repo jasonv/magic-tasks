@@ -17,7 +17,6 @@ export default async function handler(req, res) {
     }
   } else if (req.method === 'POST') {
     try {
-      console.log(req.body)
       const { description } = req.body;
       const { submitAction } = req.body;
       
@@ -45,7 +44,6 @@ export default async function handler(req, res) {
         {
           res.status(500).json({ error: 'Please add at least three tasks before mind reading.' });
         }
-        console.log("tasks:" + JSON.stringify(tasks))
         const descriptions = tasks.map(item => item.description).join(', ');
         const whatIsInMyMind = await getChatGptResponse(descriptions);
         const task = await prisma.task.create({data: {"description":whatIsInMyMind}});
@@ -72,7 +70,6 @@ async function getChatGptResponse(descriptions) {
       model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: prompt }],
     })
-    console.log(JSON.stringify(response)); 
     return response.choices[0].message.content;
   } catch (error) {
     console.log("Error fetching response from ChatGPT:", error);
@@ -91,7 +88,6 @@ async function isATask(description) {
     });
 
     const responseString = response.choices[0].message.content.trim();
-    console.log(">>>" + responseString);
     return responseString;
   } catch (error) {
     console.log("Error checking task format:", error);
