@@ -1,4 +1,5 @@
-# Task Manager Next.js Application
+# Magic Tasks
+The task manager that reads your mind!
 
 ## Getting Started
 1. Install dependencies: `npm install`
